@@ -5,6 +5,47 @@ function App() {
     <div className="ParentBox">
       <FotoProduk />
       <ProdukInfo isDiscount="coming" category="Lebaran" name="Youdora Dora" />
+
+      <ReviewItems />
+    </div>
+  );
+}
+
+function ReviewItems() {
+  const users = [
+    {
+      id: 1,
+      name: "Masayoshi",
+      review: "Harganya murah tapi kualitas bukan kaleng-kaleng",
+    },
+    {
+      id: 2,
+      name: "Masay",
+      review: "Harganya murah tapi kualitas bukan kaleng-kaleng",
+    },
+    {
+      id: 3,
+      name: "Masayomi",
+      review: "Harganya murah tapi kualitas bukan kaleng-kaleng",
+    },
+  ];
+  const listUsers = users.map((item) => (
+    <div className="Item" key={item.id}>
+      <img
+        src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        alt=""
+      />
+      <div className="User">
+        <h3>{item.name}</h3>
+        <p>{item.review}</p>
+      </div>
+    </div>
+  ));
+
+  return (
+    <div className="Review-box">
+      <h2>Reviews</h2>
+      {listUsers}
     </div>
   );
 }
@@ -19,9 +60,9 @@ function FotoProduk() {
 
 function CheckDiscount(props) {
   const { isDiscount } = props;
-  if (isDiscount == "yes") {
+  if (isDiscount === "yes") {
     return <p>Diskon 50% Off</p>;
-  } else if (isDiscount == "coming") {
+  } else if (isDiscount === "coming") {
     return <p>Akan ada Diskon</p>;
   } else {
     return <p>Belum ada Diskon</p>;
@@ -35,7 +76,9 @@ function ProdukInfo(props) {
     "Bahan lebih halus",
     "Tidak gerah",
   ];
-  const listBenefits = benefits.map((item) => <li>{item}</li>);
+  const listBenefits = benefits.map((item, index) => (
+    <li key={index}>{item}</li>
+  ));
   return (
     <div className="Desc">
       <p className="cafe">{category}</p>
