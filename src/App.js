@@ -1,11 +1,12 @@
 import "./App.css";
 import ReviewItems from "./Reviews";
+import PropTypes from "prop-types";
 
 function App() {
   return (
     <div className="ParentBox">
       <FotoProduk />
-      <ProdukInfo isDiscount="coming" category="Lebaran" name="Youdora Dora" />
+      <ProdukInfo isDiscount="yes" category="Lebaran" name="Youdora Dora" />
       <ReviewItems />
     </div>
   );
@@ -20,9 +21,9 @@ function FotoProduk() {
 }
 
 function CheckDiscount(props) {
-  const { isDiscount } = props;
+  const { isDiscount, discount } = props;
   if (isDiscount === "yes") {
-    return <p>Diskon 50% Off</p>;
+    return <p>Diskon {discount}% Off</p>;
   } else if (isDiscount === "coming") {
     return <p>Akan ada Diskon</p>;
   } else {
@@ -45,7 +46,7 @@ function ProdukInfo(props) {
       <p className="cafe">{category}</p>
       <h1 className="title">{name}</h1>
       <p className="price">IDR 73.309.999</p>
-      <CheckDiscount isDiscount={isDiscount} />
+      <CheckDiscount isDiscount={isDiscount} discount={50} />
       <p className="info">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit,
         recusandae. Corporis officiis unde hic incidunt. Molestias magni
@@ -64,5 +65,9 @@ function TambahCart(e, name) {
   e.preventDefault();
   console.log("Membeli Produk " + name);
 }
+
+CheckDiscount.propTypes = {
+  discount: PropTypes.number.isRequired,
+};
 
 export default App;
