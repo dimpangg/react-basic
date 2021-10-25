@@ -1,16 +1,15 @@
 import "./App.css";
 
 function App() {
-  const userLogged = "Angga BWA";
-  const userLoggedJSX = <strong>BWA for Future!</strong>;
-
-  let a = 1;
-  let b = 2;
   return (
     <div className="App">
-      {userLogged}
-      {userLoggedJSX}
-      {a + b}
+      <h1>Belajar React BWA</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quo
+        distinctio quidem nostrum voluptatibus voluptas cupiditate. Quaerat,
+        dolor voluptate placeat ab, sit praesentium, nam minus officia harum
+        corrupti provident voluptatum.
+      </p>
     </div>
   );
 }
