@@ -30,6 +30,12 @@ function CheckDiscount(props) {
 
 function ProdukInfo(props) {
   const { category, name, isDiscount } = props;
+  const benefits = [
+    "Tidak kusut terkena air",
+    "Bahan lebih halus",
+    "Tidak gerah",
+  ];
+  const listBenefits = benefits.map((item) => <li>{item}</li>);
   return (
     <div className="Desc">
       <p className="cafe">{category}</p>
@@ -42,6 +48,7 @@ function ProdukInfo(props) {
         reprehenderit itaque libero, numquam eos odit at sint et consequatur
         dolorum quia est!
       </p>
+      <ul>{listBenefits}</ul>
       <a onClick={(e) => TambahCart(e, name)} href="#">
         Add to Cart
       </a>
