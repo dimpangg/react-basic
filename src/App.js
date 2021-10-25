@@ -4,7 +4,7 @@ function App() {
   return (
     <div className="ParentBox">
       <FotoProduk />
-      <ProdukInfo category="Lebaran" name="Youdora Dora" />
+      <ProdukInfo isDiscount="coming" category="Lebaran" name="Youdora Dora" />
     </div>
   );
 }
@@ -17,13 +17,25 @@ function FotoProduk() {
   );
 }
 
+function CheckDiscount(props) {
+  const { isDiscount } = props;
+  if (isDiscount == "yes") {
+    return <p>Diskon 50% Off</p>;
+  } else if (isDiscount == "coming") {
+    return <p>Akan ada Diskon</p>;
+  } else {
+    return <p>Belum ada Diskon</p>;
+  }
+}
+
 function ProdukInfo(props) {
-  const { category, name } = props;
+  const { category, name, isDiscount } = props;
   return (
     <div className="Desc">
       <p className="cafe">{category}</p>
       <h1 className="title">{name}</h1>
       <p className="price">IDR 73.309.999</p>
+      <CheckDiscount isDiscount={isDiscount} />
       <p className="info">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit,
         recusandae. Corporis officiis unde hic incidunt. Molestias magni
